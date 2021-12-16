@@ -14,7 +14,7 @@ Source0:	https://files.pythonhosted.org/packages/source/p/pytest-rerunfailures/p
 # Source0-md5:	fe21612be35d540dd7ddd4a715f6f7f0
 URL:		https://pypi.org/project/pytest-rerunfailures/
 BuildRequires:	python3-modules >= 1:3.5
-BuildRequires:	python3-setuptools >= 40.0
+BuildRequires:	python3-setuptools >= 1:40.0
 %if %{with tests}
 BuildRequires:	python3-pytest >= 5.0
 BuildRequires:	python3-pytest < 6.2
