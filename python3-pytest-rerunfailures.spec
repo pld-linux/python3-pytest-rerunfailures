@@ -17,6 +17,7 @@ BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools >= 1:40.0
 %if %{with tests}
 BuildRequires:	python3-pytest >= 5.3
+BuildRequires:	python3-pytest-rerunfailures
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
