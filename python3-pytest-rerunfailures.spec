@@ -6,7 +6,7 @@ Summary:	pytest plugin to re-run tests to eliminate flaky failures
 Summary(pl.UTF-8):	Wtyczka pytesta do ponownego uruchamiania testów w celu wyeliminowania chwilowych niepowodzeń
 Name:		python3-pytest-rerunfailures
 Version:	15.0
-Release:	3
+Release:	4
 License:	MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pytest-rerunfailures/
