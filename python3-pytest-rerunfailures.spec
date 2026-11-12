@@ -5,23 +5,25 @@
 Summary:	pytest plugin to re-run tests to eliminate flaky failures
 Summary(pl.UTF-8):	Wtyczka pytesta do ponownego uruchamiania testów w celu wyeliminowania chwilowych niepowodzeń
 Name:		python3-pytest-rerunfailures
-Version:	15.1
+Version:	16.7
 Release:	1
 License:	MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pytest-rerunfailures/
 Source0:	https://files.pythonhosted.org/packages/source/p/pytest-rerunfailures/pytest_rerunfailures-%{version}.tar.gz
-# Source0-md5:	b52194935aee8172f20671749e962eb6
+# Source0-md5:	b3117a456d80c6af097b37586637042e
 URL:		https://pypi.org/project/pytest-rerunfailures/
-BuildRequires:	python3-modules >= 1:3.9
-BuildRequires:	python3-setuptools >= 1:40.0
+BuildRequires:	python3-build
+BuildRequires:	python3-installer
+BuildRequires:	python3-modules >= 1:3.10
+BuildRequires:	python3-setuptools >= 1:61
 %if %{with tests}
 BuildRequires:	python3-packaging >= 17.1
-BuildRequires:	python3-pytest >= 7.4
+BuildRequires:	python3-pytest >= 8.2
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.9
+BuildRequires:	rpmbuild(macros) >= 2.044
+Requires:	python3-modules >= 1:3.10
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,7 +39,7 @@ testy, aby wyeliminować chwilowe niepowodzenia.
 %setup -q -n pytest_rerunfailures-%{version}
 
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
@@ -49,7 +51,7 @@ PYTHONPATH=$(pwd)/src \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES.rst LICENSE README.rst
 %{py3_sitescriptdir}/pytest_rerunfailures.py
 %{py3_sitescriptdir}/__pycache__/pytest_rerunfailures.cpython-*.py[co]
-%{py3_sitescriptdir}/pytest_rerunfailures-%{version}-py*.egg-info
+%{py3_sitescriptdir}/pytest_rerunfailures-%{version}.dist-info
